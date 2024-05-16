@@ -53,6 +53,10 @@
         "route": "/specials",
         "redirect": "/deals",
         "statusCode": 301
+      },
+      {
+        "route":"",
+        "redirect":"/index2.html"
       }
     ],
     "navigationFallback": {
