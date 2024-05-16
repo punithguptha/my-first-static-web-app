@@ -1,5 +1,27 @@
 {
     "trailingSlash": "auto",
+    "auth": {
+        "identityProviders": {
+          "customOpenIdConnectProviders": {
+            "aadb2c": {
+              "registration": {
+                "clientIdSettingName": "AADB2C_PROVIDER_CLIENT_ID",
+                "clientCredential": {
+                  "clientSecretSettingName": "AADB2C_PROVIDER_CLIENT_SECRET"
+                },
+                "openIdConnectConfiguration": {
+                  "wellKnownOpenIdConfiguration": "https://someb2corganisation.b2clogin.com/someb2corganisation.onmicrosoft.com/B2C_1_Test_1/v2.0/.well-known/openid-configuration"
+                }
+              },
+              "login": {
+                "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+                "scopes": [],
+                "loginParameterNames": []
+              }
+            }
+          }
+        }
+      },
     "routes": [
       {
         "route": "/profile*",
@@ -35,7 +57,7 @@
       },
       {
         "route": "/login",
-        "rewrite": "/.auth/login/github"
+        "rewrite": "/.auth/login/aadb2c"
       },
       {
         "route": "/.auth/login/twitter",
@@ -83,27 +105,5 @@
     },
     "mimeTypes": {
       ".json": "text/json"
-    },
-    "auth": {
-        "identityProviders": {
-          "customOpenIdConnectProviders": {
-            "aadb2c": {
-              "registration": {
-                "clientIdSettingName": "AADB2C_PROVIDER_CLIENT_ID",
-                "clientCredential": {
-                  "clientSecretSettingName": "AADB2C_PROVIDER_CLIENT_SECRET"
-                },
-                "openIdConnectConfiguration": {
-                  "wellKnownOpenIdConfiguration": "https://someb2corganisation.b2clogin.com/someb2corganisation.onmicrosoft.com/B2C_1_Test_1/v2.0/.well-known/openid-configuration"
-                }
-              },
-              "login": {
-                "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
-                "scopes": [],
-                "loginParameterNames": []
-              }
-            }
-          }
-        }
-      }
+    }
   }
