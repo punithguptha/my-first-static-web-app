@@ -55,7 +55,7 @@
         "statusCode": 301
       },
       {
-        "route":"",
+        "route":"*",
         "redirect":"/index2.html"
       }
     ],
