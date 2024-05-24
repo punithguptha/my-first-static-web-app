@@ -16,12 +16,12 @@
           "customOpenIdConnectProviders": {
             "guide": {
               "registration": {
-                "clientIdSettingName": "LOCAL_GUIDE_CLIENT_ID",
+                "clientIdSettingName": "GUIDE_CLIENT_ID",
                 "clientCredential": {
-                  "clientSecretSettingName": "LOCAL_GUIDE_CLIENT_SECRET"
+                  "clientSecretSettingName": "GUIDE_CLIENT_SECRET"
                 },
                 "openIdConnectConfiguration": {
-                  "wellKnownOpenIdConfiguration": "https://localhost:44373/oauthserver/openidconfig"
+                  "wellKnownOpenIdConfiguration": "https://guidetest.o9solutions.com/oauthserver/openidconfig"
                 }
               },
               "login": {
