@@ -1,36 +1,36 @@
 {
-  "routes": [
-    {
-      "route": "/*",
-      "allowedRoles": ["authenticated"]
-    }
-  ],
-  "responseOverrides": {
-    "401": {
-      "statusCode": 302,
-      "redirect": "/.auth/login/aadb2c"
-    }
-  },
-  "auth": {
+    "routes": [
+      {
+        "route": "/*",
+        "allowedRoles": ["authenticated"]
+      }
+    ],
+    "responseOverrides": {
+      "401": {
+        "statusCode": 302,
+        "redirect": "/.auth/login/guide"
+      }
+    },
+    "auth": {
         "identityProviders": {
           "customOpenIdConnectProviders": {
-            "aadb2c": {
+            "guide": {
               "registration": {
-                "clientIdSettingName": "AADB2C_PROVIDER_CLIENT_ID",
+                "clientIdSettingName": "GUIDE_CLIENT_ID",
                 "clientCredential": {
-                  "clientSecretSettingName": "AADB2C_PROVIDER_CLIENT_SECRET"
+                  "clientSecretSettingName": "GUIDE_CLIENT_SECRET"
                 },
                 "openIdConnectConfiguration": {
-                  "wellKnownOpenIdConfiguration": "https://someb2corganisation.b2clogin.com/someb2corganisation.onmicrosoft.com/B2C_1_Test_1/v2.0/.well-known/openid-configuration"
+                  "wellKnownOpenIdConfiguration": "https://guidetest.o9solutions.com/oauthserver/openidconfig"
                 }
               },
               "login": {
-                "nameClaimType": "emails",
-                "scopes": ["openid"],
+                "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+                "scopes": [],
                 "loginParameterNames": []
               }
             }
           }
         }
+      }
   }
-}
