@@ -1,0 +1,36 @@
+{
+    "routes": [
+      {
+        "route": "/*",
+        "allowedRoles": ["authenticated"]
+      }
+    ],
+    "responseOverrides": {
+      "401": {
+        "statusCode": 302,
+        "redirect": "/.auth/login/guide"
+      }
+    },
+    "auth": {
+        "identityProviders": {
+          "customOpenIdConnectProviders": {
+            "guide": {
+              "registration": {
+                "clientIdSettingName": "GUIDE_CLIENT_ID",
+                "clientCredential": {
+                  "clientSecretSettingName": "GUIDE_CLIENT_SECRET"
+                },
+                "openIdConnectConfiguration": {
+                  "wellKnownOpenIdConfiguration": "https://guidetest.o9solutions.com/oauthserver/openidconfig"
+                }
+              },
+              "login": {
+                "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+                "scopes": ["openid"],
+                "loginParameterNames": []
+              }
+            }
+          }
+        }
+      }
+  }
